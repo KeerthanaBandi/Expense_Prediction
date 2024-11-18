@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Expenses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Expenses</h1>
+        <form action="/predict" method="POST">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" required>
+
+            <label for="income">Income:</label>
+            <input type="number" id="income" name="income" placeholder="Enter your income" required>
+
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <div class="result">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
